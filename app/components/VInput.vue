@@ -17,11 +17,11 @@ const { variant = "grey" } = defineProps<{ variant?: "grey" | "black" }>();
 }
 
 .input::placeholder {
-  color: var(--color-dark-grey);
+  color: var(--color-dark-gray);
 }
 
 .grey {
-  border-bottom: 1px solid var(--color-grey);
+  border-bottom: 1px solid var(--color-gray);
 }
 
 .black {

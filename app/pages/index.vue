@@ -6,6 +6,7 @@ import VInput from "~/components/VInput.vue";
   <div>
     <div>index</div>
     <VInput placeholder="text" />
+    <Icon name="icons:twitter" />
   </div>
 </template>
 
