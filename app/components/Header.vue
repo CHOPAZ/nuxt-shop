@@ -26,7 +26,6 @@
   display: flex;
   margin: 0 auto;
   margin-top: 48px;
-  padding: 0 16px;
   max-width: 1248px;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-gray);
@@ -49,7 +48,6 @@
   display: flex;
   align-items: center;
   gap: 60px;
-  padding-bottom: 20px;
 }
 
 .header__menu-left a {
@@ -57,6 +55,11 @@
   line-height: 27px;
   color: var(--color-black);
   text-decoration: none;
+  padding-bottom: 20px;
+}
+
+.header__menu-left a.router-link-active {
+  border-bottom: 1px solid var(--color-black);
 }
 
 .header__menu-separator {
@@ -77,6 +80,13 @@
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+.header__menu-right a {
   padding-bottom: 20px;
+}
+
+.header__menu-right a.router-link-active {
+  border-bottom: 1px solid var(--color-black);
 }
 </style>
