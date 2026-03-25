@@ -1,13 +1,7 @@
-<script setup lang="ts">
-import VInput from "~/components/VInput.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div>
-    <div>index</div>
-    <VInput placeholder="text" />
-    <Icon name="icons:twitter" />
-  </div>
+  <div></div>
 </template>
 
 <style scoped></style>
