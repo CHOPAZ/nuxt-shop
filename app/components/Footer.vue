@@ -21,7 +21,7 @@ import VInput from "./VInput.vue";
         </button>
       </div>
     </div>
-    <div class="footer__buttom">
+    <div class="footer__bottom">
       <div>© {{ new Date().getFullYear() }} Shoppe</div>
       <div class="footer__social">
         <NuxtLink to="#">
@@ -49,69 +49,71 @@ import VInput from "./VInput.vue";
   display: flex;
   flex-direction: column;
   gap: 50px;
-}
 
-.footer hr {
-  border: none;
-  border-bottom: 1px solid var(--color-gray);
-  height: 1px;
-}
+  & hr {
+    border: none;
+    border-bottom: 1px solid var(--color-gray);
+    height: 1px;
+  }
 
-.footer__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-.footer__top ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  gap: 30px;
-}
+    & ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      gap: 30px;
+    }
 
-.footer__top ul a {
-  font-size: 16px;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--color-dark-gray);
-  text-decoration: none;
-}
+    & ul a {
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--color-dark-gray);
+      text-decoration: none;
+    }
 
-.footer__top ul a:hover {
-  color: var(--color-dark);
-}
+    & ul a:hover {
+      color: var(--color-dark);
+    }
+  }
 
-.footer__buttom {
-  display: flex;
-  justify-content: space-between;
-}
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.footer__social {
-  display: flex;
-  gap: 20px;
-}
+  &__social {
+    display: flex;
+    gap: 20px;
 
-.footer__social a {
-  color: var(--color-dark-gray);
-}
+    & a {
+      color: var(--color-dark-gray);
+    }
 
-.footer__social a:hover {
-  color: var(--color-dark);
-}
-.footer__form {
-  position: relative;
-}
+    & a:hover {
+      color: var(--color-dark);
+    }
+  }
 
-.footer__form input {
-  min-width: 380px;
-}
-.footer__subscribe {
-  position: absolute;
-  right: 0;
-  top: 10px;
-  background: none;
-  border: none;
-  color: var(--color-dark-gray);
+  &__form {
+    position: relative;
+
+    & input {
+      min-width: 380px;
+    }
+  }
+
+  &__subscribe {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    background: none;
+    border: none;
+    color: var(--color-dark-gray);
+  }
 }
 </style>
