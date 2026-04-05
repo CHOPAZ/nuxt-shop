@@ -24,9 +24,7 @@
 <style scoped>
 .header {
   display: flex;
-  margin: 0 auto;
   margin-top: 48px;
-  max-width: 1248px;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-gray);
 }

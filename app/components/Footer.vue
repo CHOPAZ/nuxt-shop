@@ -43,9 +43,6 @@ import VInput from "./VInput.vue";
 
 <style scoped>
 .footer {
-  padding: 0 16px;
-  margin: 0 auto;
-  max-width: 1248px;
   display: flex;
   flex-direction: column;
   gap: 50px;

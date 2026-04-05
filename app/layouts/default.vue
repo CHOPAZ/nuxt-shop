@@ -6,9 +6,21 @@ import Header from "~/components/Header.vue";
 <template>
   <div>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+div {
+  margin: 0 auto;
+  max-width: 1248px;
+}
+
+main {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+</style>
