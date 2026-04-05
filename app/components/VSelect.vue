@@ -12,6 +12,7 @@ const { options } = defineProps<{
         {{ item.label }}
       </option>
     </select>
+    <Icon name="icons:arrow-select" size="8" />
   </div>
 </template>
 
@@ -27,6 +28,12 @@ const { options } = defineProps<{
     padding: 15px 12px;
     width: 100%;
     font-size: 14px;
+  }
+
+  & span {
+    position: absolute;
+    top: 22px;
+    right: 24px;
   }
 }
 </style>
