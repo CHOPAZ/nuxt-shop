@@ -7,7 +7,12 @@ import type { IProductsGET } from "~/interfaces/product.interface";
 
 const config = useRuntimeConfig();
 const API_URL = config.public.apiurl;
-const select = ref("");
+const category_id = ref("");
+const query = computed(() => ({
+  limit: 20,
+  offset: 0,
+  category_id: category_id.value || undefined,
+}));
 
 const { data: categoriesData } = await useFetch<ICategoriesGET>(
   API_URL + "/categories",
@@ -15,10 +20,7 @@ const { data: categoriesData } = await useFetch<ICategoriesGET>(
 const { data: productData } = await useFetch<IProductsGET>(
   API_URL + "/products",
   {
-    query: {
-      limit: 20,
-      offset: 0,
-    },
+    query,
   },
 );
 
@@ -40,7 +42,7 @@ const categoriesSelect = computed(() => {
     <h1 class="catalog__title">Каталог товаров</h1>
     <div class="catalog__content">
       <div class="catalog__filter">
-        <VSelect v-model="select" :options="categoriesSelect" />
+        <VSelect v-model="category_id" :options="categoriesSelect" />
       </div>
       <div class="catalog__cards">
         <CatalogCard
@@ -71,7 +73,7 @@ const categoriesSelect = computed(() => {
 
   &__cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     width: 100%;
     gap: 14px;
   }
