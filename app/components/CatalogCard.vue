@@ -29,7 +29,6 @@ const image = computed(
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 320px;
   text-decoration: none;
 
   &__image {

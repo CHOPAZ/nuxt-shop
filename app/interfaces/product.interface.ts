@@ -11,6 +11,13 @@ export interface IProduct {
   images: string[];
   category_id: number;
   category: ICategory;
-  created_at?: Date;
-  updated_at?: Date;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface IProductsGET {
+  products: IProduct[];
+  total: number;
+  limit: number;
+  offset: number;
 }
