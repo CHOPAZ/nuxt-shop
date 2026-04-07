@@ -13,12 +13,12 @@ const { data } = await useFetch<ICategoriesGET>(API_URL + "/categories");
 const defaultSelect = { label: "Категории", value: "" };
 const categoriesSelect = computed(() => {
   return data.value
-    ? data.value.categories
-        .map((c) => ({
+    ? [defaultSelect].concat(
+        data.value.categories.map((c) => ({
           label: c.name,
           value: c.id.toString(),
-        }))
-        .concat(defaultSelect)
+        })),
+      )
     : [defaultSelect];
 });
 
