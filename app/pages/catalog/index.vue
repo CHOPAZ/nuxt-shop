@@ -7,19 +7,34 @@ import type { IProductsGET } from "~/interfaces/product.interface";
 
 const config = useRuntimeConfig();
 const API_URL = config.public.apiurl;
-const category_id = ref("");
+
+const route = useRoute();
+const router = useRouter();
+
+const category_id = ref(route.query.category_id?.toString() || "");
+
+watch(category_id, () => {
+  if (category_id.value == "") {
+    router.replace({ query: {} });
+  } else {
+    router.replace({ query: { category_id: category_id.value } });
+  }
+});
+
 const query = computed(() => ({
-  limit: 20,
-  offset: 0,
-  category_id: category_id.value || undefined,
+  limit: route.query.limit ?? 20,
+  offset: route.query.offset ?? 0,
+  category_id: route.query.category_id || undefined,
 }));
 
 const { data: categoriesData } = await useFetch<ICategoriesGET>(
   API_URL + "/categories",
 );
+
 const { data: productData } = await useFetch<IProductsGET>(
   API_URL + "/products",
   {
+    key: "get-products",
     query,
   },
 );
