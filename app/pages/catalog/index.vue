@@ -10,7 +10,7 @@ const API_URL = config.public.apiurl;
 
 const route = useRoute();
 const router = useRouter();
-
+const search = ref(route.query.search?.toString() || "");
 const category_id = ref(route.query.category_id?.toString() || "");
 
 watch(category_id, () => {
@@ -25,12 +25,15 @@ const query = computed(() => ({
   limit: route.query.limit ?? 20,
   offset: route.query.offset ?? 0,
   category_id: route.query.category_id || undefined,
+  search: route.query.search || undefined,
 }));
 
+//Получение категорий (для select)
 const { data: categoriesData } = await useFetch<ICategoriesGET>(
   API_URL + "/categories",
 );
 
+//Получение карточек продуктов
 const { data: productData } = await useFetch<IProductsGET>(
   API_URL + "/products",
   {
@@ -57,6 +60,7 @@ const categoriesSelect = computed(() => {
     <h1 class="catalog__title">Каталог товаров</h1>
     <div class="catalog__content">
       <div class="catalog__filter">
+        <VInput v-model="search" variant="grey" placeholder="Поиск..." />
         <VSelect v-model="category_id" :options="categoriesSelect" />
       </div>
       <div class="catalog__cards">
