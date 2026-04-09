@@ -46,6 +46,7 @@ import VInput from "./VInput.vue";
   display: flex;
   flex-direction: column;
   gap: 50px;
+  margin-bottom: 30px;
 
   & hr {
     border: none;
