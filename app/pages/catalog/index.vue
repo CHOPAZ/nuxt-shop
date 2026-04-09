@@ -13,12 +13,13 @@ const router = useRouter();
 const search = ref(route.query.search?.toString() || "");
 const category_id = ref(route.query.category_id?.toString() || "");
 
-watch(category_id, () => {
-  if (category_id.value == "") {
-    router.replace({ query: {} });
-  } else {
-    router.replace({ query: { category_id: category_id.value } });
-  }
+watchEffect(() => {
+  router.replace({
+    query: {
+      category_id: category_id.value,
+      search: search.value,
+    },
+  });
 });
 
 const query = computed(() => ({
@@ -60,7 +61,10 @@ const categoriesSelect = computed(() => {
     <h1 class="catalog__title">Каталог товаров</h1>
     <div class="catalog__content">
       <div class="catalog__filter">
-        <VInput v-model="search" variant="grey" placeholder="Поиск..." />
+        <div class="catalog__search">
+          <VInput v-model="search" variant="grey" placeholder="Поиск..." />
+          <Icon name="icons:search" size="24px" />
+        </div>
         <VSelect v-model="category_id" :options="categoriesSelect" />
       </div>
       <div class="catalog__cards">
@@ -88,13 +92,27 @@ const categoriesSelect = computed(() => {
 
   &__filter {
     width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__search {
+    position: relative;
+    width: 100%;
+
+    & span {
+      position: absolute;
+      top: 8px;
+      right: 0px;
+    }
   }
 
   &__cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     width: 100%;
-    gap: 14px;
+    gap: 64px 12px;
   }
 }
 </style>

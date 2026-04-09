@@ -9,6 +9,7 @@ const { variant = "grey" } = defineProps<{ variant?: "grey" | "black" }>();
 
 <style scoped>
 .input {
+  width: 100%;
   padding: 12px 0;
   background: none;
   border: none;
