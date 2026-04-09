@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDebounceFn } from "@vueuse/core";
 import CatalogCard from "~/components/CatalogCard.vue";
 import VSelect from "~/components/VSelect.vue";
 
@@ -13,14 +14,16 @@ const router = useRouter();
 const search = ref(route.query.search?.toString() || "");
 const category_id = ref(route.query.category_id?.toString() || "");
 
-watchEffect(() => {
+watch([category_id, search], () => debounce(category_id, search));
+
+const debounce = useDebounceFn((category_id, search) => {
   router.replace({
     query: {
       category_id: category_id.value,
       search: search.value,
     },
   });
-});
+}, 700);
 
 const query = computed(() => ({
   limit: route.query.limit ?? 20,
