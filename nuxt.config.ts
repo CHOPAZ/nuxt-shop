@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/scripts",
     "@nuxt/icon",
+    "@pinia/nuxt",
   ],
   icon: {
     customCollections: [
