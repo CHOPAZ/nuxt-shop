@@ -2,6 +2,7 @@
   import type { IProduct } from '~/interfaces/product.interface'
 
   const config = useRuntimeConfig()
+
   const product = defineProps<IProduct>()
   const image = computed(() => `url(${config.public.imageurl}${product.images[0]})`)
   const isShownFavoriteBtn = ref(false)
