@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  definePageMeta({ middleware: 'auth' })
+</script>
 
 <template>
-  <div>catalog</div>
+  <div>account</div>
 </template>
 
 <style scoped></style>
