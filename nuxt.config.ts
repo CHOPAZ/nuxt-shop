@@ -11,6 +11,18 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
   ],
+  app: {
+    head: {
+      title: 'Магазин SHOPPE',
+      htmlAttrs: {
+        lang: 'ru',
+      },
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' },
+        { rel: 'manifest', crossorigin: 'anonymous', href: '/manifest.webmanifest' },
+      ],
+    },
+  },
   routeRules: {
     '/about': { prerender: true },
     '/': { swr: true },
