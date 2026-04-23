@@ -16,6 +16,7 @@
       },
     })
     storeAuth.setToken(data.token)
+    navigateTo('/account')
   }
 </script>
 
