@@ -6,6 +6,12 @@
   import type { ICategoriesGET } from '~/interfaces/category.interface'
   import type { IProductsGET } from '~/interfaces/product.interface'
 
+  useSeoMeta({
+    title: 'Каталог товаров',
+    description: 'Каталог товаров магазина SHOPPE',
+    ogDescription: 'Каталог товаров магазина SHOPPE',
+  })
+
   const API_URL = useAPI().apiURL
   const route = useRoute()
   const router = useRouter()

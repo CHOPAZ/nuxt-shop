@@ -1,6 +1,10 @@
 <script setup lang="ts">
   definePageMeta({ middleware: 'auth' })
 
+  useSeoMeta({
+    title: 'Профиль',
+  })
+
   const storeAuth = useAuthStore()
 </script>
 

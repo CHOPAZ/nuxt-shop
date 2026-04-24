@@ -2,6 +2,10 @@
   import VButton from '~/components/VButton.vue'
   import type { IAuthResponce } from '~/interfaces/auth.interface'
 
+  useSeoMeta({
+    title: 'Аккаунт',
+  })
+
   const API_URL = useAPI().apiURL
   const email = ref<string | undefined>()
   const password = ref<string | undefined>()
