@@ -24,9 +24,6 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/about': { prerender: true },
-    '/': { swr: true },
-    '/catalog/**': { swr: 3600 },
     '/auth/': { redirect: '/auth/login' },
     '/login/': { redirect: '/auth/login' },
   },
